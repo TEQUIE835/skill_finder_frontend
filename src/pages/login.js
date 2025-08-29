@@ -8,8 +8,8 @@ async function bootstrap() {
   if (!app) throw new Error('Missing #app container');
   // Renderizar SIEMPRE el formulario de login con footer (sin header)
   const [loginView, footer] = await Promise.all([
-    loadPartial('./src/pages/views/login.html'),
-    loadPartial('./src/pages/views/partials/footer.html').catch(() => ''),
+    loadPartial('/pages/views/login.html'),
+    loadPartial('/pages/views/partials/footer.html').catch(() => ''),
   ]);
   app.innerHTML = `${loginView}\n${footer}`;
   // Ocultar SOLO el scroll horizontal en la página de login

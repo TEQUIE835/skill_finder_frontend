@@ -1,5 +1,5 @@
 import { api } from './api.js';
-import bcrypt from 'bcryptjs';
+
 
 let __usersCache = { data: null, ts: 0 };
 const DEFAULT_TTL = 30000; // 30s
@@ -45,8 +45,6 @@ export async function updateUser(id, data) {
 
 export async function changePassword(id, { password, newPassword }) {
   // El backend guarda directamente el valor recibido; debemos enviar la nueva contraseña ya hasheada
-  const salt = await bcrypt.genSalt(15);
-  const hashed = await bcrypt.hash(newPassword, salt);
   return api.put(`/users/password/${id}`, { password, newPassword: hashed });
 }
 

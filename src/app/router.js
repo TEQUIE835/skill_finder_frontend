@@ -41,15 +41,15 @@ function forceScrollTop() {
 }
 
 const routes = {
-  login: './src/pages/views/login.html',
-  main: './src/pages/views/main.html',
-  profiles: './src/pages/views/profiles.html',
-  teams: './src/pages/views/teams.html',
-  'profiles-new': './src/pages/views/profiles-new.html',
-  'teams-new': './src/pages/views/teams-new.html',
-  account: './src/pages/views/users/account.html',
-  'account-edit': './src/pages/views/users/account-edit.html',
-  'profiles-edit-admin': './src/pages/views/users/admin-edit.html',
+  login: '/pages/views/login.html',
+  main: '/pages/views/main.html',
+  profiles: '/pages/views/profiles.html',
+  teams: '/pages/views/teams.html',
+  'profiles-new': '/pages/views/profiles-new.html',
+  'teams-new': '/pages/views/teams-new.html',
+  account: '/pages/views/users/account.html',
+  'account-edit': '/pages/views/users/account-edit.html',
+  'profiles-edit-admin': '/pages/views/users/admin-edit.html',
 };
 
 function getRouteFromHash() {
@@ -96,8 +96,8 @@ export async function renderRoute(route) {
   const myVersion = ++__renderVersion;
   const app = document.getElementById('app');
   if (!app) throw new Error('Missing #app container');
-  const headerPath = './src/pages/views/partials/header.html';
-  const footerPath = './src/pages/views/partials/footer.html';
+  const headerPath = '/pages/views/partials/header.html';
+  const footerPath = '/pages/views/partials/footer.html';
   const viewPath = routes[route] || routes.main;
   // Cache de instancias de vistas montadas en DOM
   if (!renderRoute.__viewInstances) renderRoute.__viewInstances = new Map();
