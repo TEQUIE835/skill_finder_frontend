@@ -1,5 +1,5 @@
 // Generic API client centralizado en services
-const API_BASE = '';
+const API_BASE = import.meta.env.VITE_API_BASE || '';
 
 async function request(path, { method = 'GET', headers = {}, body, json = true } = {}) {
   const res = await fetch(`${API_BASE}${path}`, {
