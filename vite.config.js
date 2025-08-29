@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   server: {
@@ -19,4 +20,14 @@ export default defineConfig({
       '/register': 'http://localhost:3000',
     },
   },
+   plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'src/pages/views', // desde
+          dest: 'pages'           // a dist/pages
+        }
+      ]
+    })
+  ]
 });
